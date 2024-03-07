@@ -299,7 +299,7 @@ return [
         // Sidebar items:
         [
             'text'      => 'artists',
-            'url'       => '#',
+            'route'     => 'artists.index',
             'icon'      => 'fas fa-fw fa-user-tie',
         ],
         [
