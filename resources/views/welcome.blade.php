@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Listado de Cuentas')
+@section('title', config('app.name'))
 
 @section('content_header')
     <div class="d-flex">
