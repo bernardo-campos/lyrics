@@ -1,11 +1,10 @@
-<table id="albums" class="table table-sm">
+<table id="songs" class="table table-sm dt-responsive">
 <thead>
     <tr>
         <th style="width: 10px">Id</th>
-        <th>{{ __('Year') }}</th>
         <th>{{ __('Artist') }}</th>
-        <th>{{ __('Name') }}</th>
-        <th>{{ __('Songs') }}</th>
+        <th>{{ __('Album') }}</th>
+        <th>{{ __('Ttitle') }}</th>
         <th></th>
     </tr>
 </thead>
@@ -16,26 +15,22 @@
 <script type="text/javascript">
 $(document).ready(function () {
 
-    let csrf_html = `@csrf`;
-    let delete_html = `@method('DELETE')`;
-
-    var dt = $('#albums').DataTable({
+    var dt = $('#songs').DataTable({
         language: {
             url: "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
         },
-        stateSave: true,
+        ajax: '{{ route('songs.index') }}',
         processing: true,
-        serverSide: true,
-        ajax: '{{ route('albums.index') }}',
         search: {
             return: true,
         },
+        serverSide: true,
+        stateSave: true,
         columns: [
-            { data: 'id', name: 'id' },
-            { data: 'year', name: 'year' },
-            { data: 'artist.name', name: 'artist.name' },
-            { data: 'name', name: 'name' },
-            { data: 'songs_count', name: 'songs_count', searchable: false },
+            { data: 'id', name: 'id', searchable: false},
+            { data: 'album.artist.name', name: 'album.artist.name', searchable: false},
+            { data: 'album.name', name: 'album.name', searchable: false},
+            { data: 'name', name: 'name', searchable: false},
             {
                 data: null,
                 defaultContent: '',
@@ -57,10 +52,14 @@ $(document).ready(function () {
 
 @push('css')
 <style type="text/css">
-    #albums {
+    #songs {
         width: 100%!important;
     }
-    div#albums_processing:before {
+    mark,.mark {
+        padding: 0;
+        background-color: #b4ff00;
+    }
+    div#songs_processing:before {
         content: '';
         display: block;
         cursor: progress;
