@@ -304,7 +304,7 @@ return [
         ],
         [
             'text'      => 'albums',
-            'url'       => '#',
+            'route'     => 'albums.index',
             'icon'      => 'fas fa-fw fa-compact-disc',
         ],
     ],

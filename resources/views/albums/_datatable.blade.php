@@ -1,9 +1,10 @@
-<table id="artists" class="table table-sm">
+<table id="albums" class="table table-sm">
 <thead>
     <tr>
         <th style="width: 10px">Id</th>
         <th>{{ __('Name') }}</th>
-        <th>{{ __('Albums') }}</th>
+        <th>{{ __('Year') }}</th>
+        <th>{{ __('Artist') }}</th>
         <th></th>
     </tr>
 </thead>
@@ -14,21 +15,25 @@
 <script type="text/javascript">
 $(document).ready(function () {
 
-    var dt = $('#artists').DataTable({
+    let csrf_html = `@csrf`;
+    let delete_html = `@method('DELETE')`;
+
+    var dt = $('#albums').DataTable({
         language: {
             url: "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
         },
         stateSave: true,
         processing: true,
         serverSide: true,
-        ajax: '{{ route('artists.index') }}',
+        ajax: '{{ route('albums.index') }}',
         search: {
             return: true,
         },
         columns: [
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
-            { data: 'albums_count', name: 'albums_count', searchable: false },
+            { data: 'year', name: 'year' },
+            { data: 'artist.name', name: 'artist.name' },
             {
                 data: null,
                 defaultContent: '',
@@ -50,7 +55,7 @@ $(document).ready(function () {
 
 @push('css')
 <style type="text/css">
-    #artists {
+    #albums {
         width: 100%!important;
     }
     div#albums_processing:before {

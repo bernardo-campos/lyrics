@@ -17,7 +17,7 @@ class ArtistFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->name();
+        $name = fake()->unique()->name();
 
         return [
             'name' => $name,
