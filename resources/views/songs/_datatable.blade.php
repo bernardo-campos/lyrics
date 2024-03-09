@@ -39,6 +39,7 @@ $(document).ready(function () {
                     if (type === 'display') {
                         return `
                         <div class="d-flex">
+                            <a title="{{ __('Show') }}" href="${row.urls.show}" class="btn btn-sm btn-warning py-0 px-1"><i class="fa fa-eye"></i></a>
                         </div>`
                         ;
                     }

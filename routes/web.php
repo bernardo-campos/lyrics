@@ -31,4 +31,5 @@ Route::group([
     'controller'    => SongController::class,
 ], function () {
     Route::get('/','index')->name('index');
+    Route::get('/{song}','show')->name('show');
 });

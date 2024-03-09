@@ -18,8 +18,15 @@ class SongController extends Controller
 
         return DataTables::eloquent($query)
             ->addColumn('urls', fn(Song $song) => [
-                // 'show' => route('song.show', $song),
+                'show' => route('songs.show', $song),
             ])
             ->make(true);
+    }
+
+    public function show(Song $song)
+    {
+        return view('songs.show', [
+            'song' => $song->load('album.artist'),
+        ]);
     }
 }
