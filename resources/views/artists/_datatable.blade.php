@@ -2,8 +2,8 @@
 <thead>
     <tr>
         <th style="width: 10px">Id</th>
-        <th>{{ __('Name') }}</th>
-        <th>{{ __('Albums') }}</th>
+        <th>{{ __('headers.name') }}</th>
+        <th>{{ __('headers.albums') }}</th>
         <th></th>
     </tr>
 </thead>

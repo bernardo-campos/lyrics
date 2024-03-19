@@ -2,12 +2,12 @@
 
 @section('plugins.Datatables', true)
 
-@section('title', __('Songs'))
+@section('title', __('adminlte::menu.songs'))
 
 @section('content_header')
     <div class="d-flex">
         <div>
-            <h1 class="m-0 text-dark">{{ __('Songs') }}</h1>
+            <h1 class="m-0 text-dark">{{ __('adminlte::menu.songs') }}</h1>
             <small></small>
         </div>
     </div>

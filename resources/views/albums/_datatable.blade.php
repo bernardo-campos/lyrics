@@ -2,11 +2,11 @@
 <thead>
     <tr>
         <th style="width: 10px">Id</th>
-        <th>{{ __('Year') }}</th>
-        <th>{{ __('Artist') }}</th>
-        <th>{{ __('Name') }}</th>
-        <th>{{ __('Image') }}</th>
-        <th>{{ __('Songs') }}</th>
+        <th>{{ __('headers.year') }}</th>
+        <th>{{ __('headers.artist') }}</th>
+        <th>{{ __('headers.name') }}</th>
+        <th>{{ __('headers.image') }}</th>
+        <th>{{ __('headers.songs') }}</th>
         <th></th>
     </tr>
 </thead>

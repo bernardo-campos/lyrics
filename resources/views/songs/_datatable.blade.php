@@ -2,9 +2,9 @@
 <thead>
     <tr>
         <th style="width: 10px">Id</th>
-        <th>{{ __('Artist') }}</th>
-        <th>{{ __('Album') }}</th>
-        <th>{{ __('Ttitle') }}</th>
+        <th>{{ __('headers.artist') }}</th>
+        <th>{{ __('headers.album') }}</th>
+        <th>{{ __('headers.title') }}</th>
         <th></th>
     </tr>
 </thead>
