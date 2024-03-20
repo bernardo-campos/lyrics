@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     var dt = $('#songs').DataTable({
         language: {
-            url: "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+            url: "{{ __('datatable.i18n') }}"
         },
         ajax: '{{ route('songs.index') }}',
         processing: true,
