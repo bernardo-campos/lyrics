@@ -2,7 +2,7 @@
 
 @section('plugins.Datatables', true)
 
-@section('title', __('adminlte.menu.artists'))
+@section('title', __('adminlte::menu.artists'))
 
 @section('content_header')
     <div class="d-flex">

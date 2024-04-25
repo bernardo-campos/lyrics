@@ -1,4 +1,4 @@
-<table id="artists" class="table table-sm">
+<table id="artists" class="table table-sm w-100">
 <thead>
     <tr>
         <th style="width: 10px">Id</th>
@@ -46,23 +46,4 @@ $(document).ready(function () {
     });
 });
 </script>
-@endpush
-
-@push('css')
-<style type="text/css">
-    #artists {
-        width: 100%!important;
-    }
-    div#albums_processing:before {
-        content: '';
-        display: block;
-        cursor: progress;
-        background-color: #ffffff85;
-        position: fixed;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-    }
-</style>
 @endpush
