@@ -1,0 +1,22 @@
+{
+    "name": "Artist name",
+    "url": "/some/url/show.php?bnid=1&band=artist-name",
+    "bio": "<header class=\"hidden\"><h2>Artist name</h2></header>\n<img src=\"//some-url/img/1.webp?artist-name\" alt=\"Artist Name\" width=\"520\" height=\"445\" class=\"img-responsive\">\n        <br class=\"hidden-md hidden-lg\">\n<div id=\"c-dos\"></div>\n<p>This is the artist biography</p>\n<br><br><br>\n",
+    "albums": [
+        {
+            "title": "ALBUM TITLE",
+            "year": "2024",
+            "url": "/some/url/song/show.php?bnid=1&band=artist-name&album=album-title",
+            "img_mini_url": "//some-url/covers/img-sm.webp",
+            "img_url": "//some-url/covers/img.webp",
+            "songs": [
+                {
+                    "number": "01",
+                    "title": "SONG NAME",
+                    "url": "/some/url/lyric.php?bnid=1&banda=artist-name&song=song-name",
+                    "lyric": "First line\n<br>Second line\n<br>Third line \n<br>Fourth line\n<br>"
+                }
+            ]
+        }
+    ]
+}
