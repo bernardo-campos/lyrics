@@ -27,10 +27,10 @@ $(document).ready(function () {
         serverSide: true,
         stateSave: true,
         columns: [
-            { data: 'id', name: 'id', searchable: false},
-            { data: 'album.artist.name', name: 'album.artist.name', searchable: false},
-            { data: 'album.name', name: 'album.name', searchable: false},
-            { data: 'name', name: 'name', searchable: false},
+            { data: 'id', name: 'id', searchable: true},
+            { data: 'album.artist.name', name: 'album.artist.name', searchable: true},
+            { data: 'album.name', name: 'album.name', searchable: true},
+            { data: 'name', name: 'name', searchable: true},
             {
                 data: null,
                 defaultContent: '',
