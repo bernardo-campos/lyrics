@@ -5,6 +5,10 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('healthcheck', function () {
+    return response()->json(['message' => 'OK']);
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
