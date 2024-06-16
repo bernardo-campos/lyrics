@@ -37,6 +37,7 @@ $(document).ready(function () {
                     if (type === 'display') {
                         return `
                         <div class="d-flex">
+                        <a title="{{ __('Albums') }}" href="${row.urls.albums}" class="btn btn-sm btn-primary py-0 px-1"><i class="fas fa-compact-disc"></i></a>
                         </div>`
                         ;
                     }

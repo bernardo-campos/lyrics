@@ -18,6 +18,7 @@ class ArtistController extends Controller
 
         return DataTables::eloquent($query)
             ->addColumn('urls', fn(Artist $artist) => [
+                'albums' => route('artists.albums.index', $artist),
                 // 'edit' => route('artists.edit', $artist),
                 // 'destroy' => route('artists.destroy', $artist),
             ])
