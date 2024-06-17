@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Artist;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -29,6 +30,16 @@ class ArtistAlbumController extends Controller
 
         return view('artists.albums.index', [
             'artist' => $artist,
+        ]);
+    }
+
+    public function show(Artist $artist, Album $album)
+    {
+        $album->load('songs');
+
+        return view('artists.albums.show', [
+            'artist' => $artist,
+            'album' => $album,
         ]);
     }
 }

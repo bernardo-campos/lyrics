@@ -21,7 +21,14 @@ Route::group([
 ], function () {
     Route::get('/','index')->name('index');
 
-    Route::get('{artist}/albums', [ArtistAlbumController::class, 'index'])->name('albums.index');
+    Route::group([
+        'as'            => 'albums.',
+        'prefix'        => '{artist:slug}',
+        'controller'    => ArtistAlbumController::class,
+    ], function () {
+        Route::get('albums', 'index')->name('index');
+        Route::get('albums/{album}', 'show')->name('show');
+    });
 });
 
 Route::group([
