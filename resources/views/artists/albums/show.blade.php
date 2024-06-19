@@ -25,13 +25,18 @@
     <div class="col-5 col-sm-3">
         <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
             @foreach ($album->songs as $song)
+                @php
+                    $slug = Str::slug($song->number.$song->name, '-');
+                    $classes = $loop->first ? 'active' : '';
+                    $classes .= is_null($song->lyric) ? ' text-muted' : '';
+                @endphp
                 <a
-                    class="nav-link px-0 py-1 {{ $loop->first ? 'active' : '' }}"
+                    class="nav-link px-0 py-1 {{ $classes }}"
                     id="vert-tabs-{{ $song->number }}-tab"
                     data-toggle="pill"
-                    href="#vert-tabs-{{ $song->number }}"
+                    href="#vert-tabs-{{ $slug }}"
                     role="tab"
-                    aria-controls="vert-tabs-{{ $song->number }}"
+                    aria-controls="vert-tabs-{{ $slug }}"
                     aria-selected="{{ $loop->first ? 'true' : 'false' }}"
                 >
                     {{ str_pad($song->number, 2, '0', STR_PAD_LEFT) }}. {{ $song->name }}
@@ -42,11 +47,14 @@
     <div class="col-7 col-sm-9">
         <div class="tab-content" id="vert-tabs-tabContent">
             @foreach ($album->songs as $song)
+                @php
+                    $slug = Str::slug($song->number.$song->name, '-');
+                @endphp
                 <div
                     class="tab-pane text-left fade {{ $loop->first ? 'active show' : '' }}"
-                    id="vert-tabs-{{ $song->number }}"
+                    id="vert-tabs-{{ $slug }}"
                     role="tabpanel"
-                    aria-labelledby="vert-tabs-{{ $song->number }}-tab"
+                    aria-labelledby="vert-tabs-{{ $slug }}-tab"
                 >
                     <h4>{{ $song->name }}</h4>
                     <div style="white-space: pre-line;">{{ $song->lyric }}</div>
@@ -61,3 +69,12 @@
 </div> <!-- .col-12 -->
 </div> <!-- .row -->
 @endsection
+
+@push('css')
+<style type="text/css">
+    a.active{
+        font-weight: 700;
+        color: #007bff!important;
+    }
+</style>
+@endpush
