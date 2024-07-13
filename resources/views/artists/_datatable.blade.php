@@ -21,7 +21,17 @@ $(document).ready(function () {
         stateSave: true,
         processing: true,
         serverSide: true,
-        ajax: '{{ route('artists.index') }}',
+        ajax: {
+            url: '{{ route('artists.index') }}',
+            error: function (xhr, error, thrown) {
+                var errorMessage = "{{ __('datatable.error') }}";
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                }
+                $('#artists_processing').hide();
+                alert(errorMessage);
+            }
+        },
         search: {
             return: true,
         },

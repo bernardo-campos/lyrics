@@ -54,7 +54,17 @@ $(document).ready(function () {
         stateSave: true,
         processing: true,
         serverSide: true,
-        ajax: '{{ route('albums.index') }}',
+        ajax: {
+            url: '{{ route('albums.index') }}',
+            error: function (xhr, error, thrown) {
+                var errorMessage = "{{ __('datatable.error') }}";
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                }
+                $('#albums_processing').hide();
+                alert(errorMessage);
+            }
+        },
         search: {
             return: true,
         },
@@ -90,7 +100,6 @@ $(document).ready(function () {
                 defaultContent: '',
                 orderable: false,
                 render: function (data, type, row, meta) {
-                    console.log({type, row})
                     if (type === 'display') {
                         return `
                         <div class="d-flex">

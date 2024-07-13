@@ -19,7 +19,17 @@ $(document).ready(function () {
         language: {
             url: "{{ __('datatable.i18n') }}"
         },
-        ajax: '{{ route('songs.index') }}',
+        ajax: {
+            url: '{{ route('songs.index') }}',
+            error: function (xhr, error, thrown) {
+                var errorMessage = "{{ __('datatable.error') }}";
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                }
+                $('#songs_processing').hide();
+                alert(errorMessage);
+            }
+        },
         processing: true,
         search: {
             return: true,

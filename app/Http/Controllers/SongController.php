@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Song;
+use App\Http\Requests\Datatable\LengthRequest;
 use Illuminate\Http\Request;
 use DataTables;
 
 class SongController extends Controller
 {
-    public function index()
+    public function index(LengthRequest $request)
     {
         if (!request()->ajax()) {
             return view('songs.index');
