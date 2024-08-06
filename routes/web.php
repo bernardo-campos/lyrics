@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistAlbumController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,14 @@ Route::get('healthcheck', function () {
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group([
+    'as'            => 'search.',
+    'prefix'        => 'search',
+    'controller'    => SearchController::class,
+], function () {
+    Route::get('/', 'index')->name('index');
 });
 
 Route::group([

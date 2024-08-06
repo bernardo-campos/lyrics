@@ -298,6 +298,11 @@ return [
 
         // Sidebar items:
         [
+            'text'      => 'search',
+            'route'     => 'search.index',
+            'icon'      => 'fas fas-fw fa-search',
+        ],
+        [
             'text'      => 'artists',
             'route'     => 'artists.index',
             'icon'      => 'fas fa-fw fa-user-tie',
@@ -420,12 +425,22 @@ return [
             ],
         ],
         'iCheck' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/icheck-bootstrap/icheck-bootstrap.min.css',
+                ]
+            ],
+        ],
+        'Vue3' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/vue@3.2.47/vue.global.prod.js',
                 ]
             ],
         ],
