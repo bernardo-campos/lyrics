@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Artist;
+use App\Models\Song;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -40,6 +41,9 @@ class MigrationSeeder extends Seeder
             ]);
             $this->albums_count++;
 
+            $songsToInsert = [];
+            $timestamp = now();
+
             foreach ($albumArray['songs'] as $songArray) {
                 $lyric = $songArray['lyric'] ?? null;
 
@@ -48,14 +52,21 @@ class MigrationSeeder extends Seeder
                     $lyric = strip_tags(trim($lyric));
                 }
 
-                $album->songs()->create([
+                $songsToInsert[] = [
+                    'album_id' => $album->id,
                     'artist_id' => $artist->id,
                     'number' => $songArray['number'],
                     'name' => $songArray['title'],
                     'lyric' => $lyric,
-                ]);
+                    'created_at' => $timestamp,
+                    'updated_at' => $timestamp,
+                ];
+
                 $this->songs_count++;
             }
+
+            Song::insert($songsToInsert);
+
         }
     }
 
