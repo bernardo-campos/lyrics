@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedSmallInteger('number')->nullable();
             $table->foreignId('album_id')->constrained();
+            $table->foreignId('artist_id')->constrained();
             $table->string('name')->nullable();
             $table->mediumText('lyric')->nullable();
             $table->timestamps();

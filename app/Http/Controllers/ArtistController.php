@@ -15,7 +15,7 @@ class ArtistController extends Controller
             return view('artists.index');
         }
 
-        $query = Artist::withCount('albums');
+        $query = Artist::withCount(['albums', 'songs']);
 
         return DataTables::eloquent($query)
             ->addColumn('urls', fn(Artist $artist) => [

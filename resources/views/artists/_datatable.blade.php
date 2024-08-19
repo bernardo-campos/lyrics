@@ -4,6 +4,7 @@
         <th style="width: 10px">Id</th>
         <th>{{ __('headers.name') }}</th>
         <th>{{ __('headers.albums') }}</th>
+        <th>{{ __('headers.songs') }}</th>
         <th></th>
     </tr>
 </thead>
@@ -39,6 +40,7 @@ $(document).ready(function () {
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
             { data: 'albums_count', name: 'albums_count', searchable: false },
+            { data: 'songs_count', name: 'songs_count', searchable: false },
             {
                 data: null,
                 defaultContent: '',
