@@ -54,6 +54,7 @@ $(document).ready(function () {
                         return `
                         <div class="d-flex">
                         <a title="{{ __('Albums') }}" href="${row.urls.albums}" class="btn btn-sm btn-primary py-0 px-1"><i class="fas fa-compact-disc"></i></a>
+                        <a title="{{ __('Songs') }}" href="${row.urls.songs}" class="btn btn-sm btn-primary py-0 px-1 ml-1"><i class="fas fa-music"></i></a>
                         </div>`
                         ;
                     }
