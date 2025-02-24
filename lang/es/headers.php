@@ -9,6 +9,8 @@ return [
 	'name'							=> 'Nombre',
 	'song'							=> 'Canción',
 	'songs'							=> 'Canciones',
+	'songsWithLyrics'				=> 'Canciones con letra',
+	'songsWithoutLyrics'			=> 'Canciones sin letra',
 	'title'							=> 'Título',
 	'year'							=> 'Año',
 ];

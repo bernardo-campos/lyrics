@@ -5,6 +5,8 @@
         <th>{{ __('headers.name') }}</th>
         <th>{{ __('headers.albums') }}</th>
         <th>{{ __('headers.songs') }}</th>
+        <th>{{ __('headers.songsWithLyrics') }}</th>
+        <th>{{ __('headers.songsWithoutLyrics') }}</th>
         <th></th>
     </tr>
 </thead>
@@ -41,6 +43,8 @@ $(document).ready(function () {
             { data: 'name', name: 'name' },
             { data: 'albums_count', name: 'albums_count', searchable: false },
             { data: 'songs_count', name: 'songs_count', searchable: false },
+            { data: 'songs_with_lyrics_count', name: 'songs_with_lyrics_count', searchable: false },
+            { data: 'songs_without_lyrics_count', name: 'songs_without_lyrics_count', searchable: false },
             {
                 data: null,
                 defaultContent: '',

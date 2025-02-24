@@ -21,6 +21,16 @@ class Artist extends Model
         return $this->hasMany(Song::class);
     }
 
+    public function songsWithLyrics(): HasMany
+    {
+        return $this->hasMany(Song::class)->whereNotNull('lyric');
+    }
+
+    public function songsWithoutLyrics(): HasMany
+    {
+        return $this->hasMany(Song::class)->whereNull('lyric');
+    }
+
     public function images(): MorphMany
     {
         return $this->morphMany(Image::class, 'imageable');
