@@ -23,6 +23,7 @@ Route::group([
     Route::get('/','index')->name('index');
 
     Route::get('{artist:slug}/songs', [ArtistSongController::class, 'index'])->name('songs.index');
+    Route::get('{artist:slug}/songs/unique', [ArtistSongController::class, 'unique'])->name('songs.unique.index');
 
     Route::group([
         'as'            => 'albums.',
