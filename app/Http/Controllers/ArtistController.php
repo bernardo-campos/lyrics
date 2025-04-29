@@ -20,7 +20,9 @@ class ArtistController extends Controller
             'songs',
             'songsWithLyrics',
             'songsWithoutLyrics',
-        ]);
+        ])->selectRaw(
+            "(SELECT COUNT(DISTINCT songs.name) FROM songs WHERE songs.artist_id = artists.id and songs.lyric is not null) as unique_song_names_count"
+        );
 
         return DataTables::eloquent($query)
             ->addColumn('urls', fn(Artist $artist) => [

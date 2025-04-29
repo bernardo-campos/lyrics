@@ -6,6 +6,7 @@
         <th>{{ __('headers.albums') }}</th>
         <th>{{ __('headers.songs') }}</th>
         <th>{{ __('headers.songsWithLyrics') }}</th>
+        <th>Únicas con letra</th>
         <th>{{ __('headers.songsWithoutLyrics') }}</th>
         <th></th>
     </tr>
@@ -44,6 +45,7 @@ $(document).ready(function () {
             { data: 'albums_count', name: 'albums_count', searchable: false },
             { data: 'songs_count', name: 'songs_count', searchable: false },
             { data: 'songs_with_lyrics_count', name: 'songs_with_lyrics_count', searchable: false },
+            { data: 'unique_song_names_count', name: 'unique_song_names_count', searchable: false },
             { data: 'songs_without_lyrics_count', name: 'songs_without_lyrics_count', searchable: false },
             {
                 data: null,
